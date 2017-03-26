@@ -1,0 +1,5 @@
+%%
+
+blanco-> [:blanco:]->retorno(no_guardar, yyline, yyrow);
+error-> [:todo:] ->error(yyline, yyrow, yytext);
+%%

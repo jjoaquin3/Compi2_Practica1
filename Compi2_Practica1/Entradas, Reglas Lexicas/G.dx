@@ -1,0 +1,15 @@
+%%
+CONJ: letra-> a~z;
+CONJ: carac->!~&;
+CONJ: vocal -> a,e,i,o,u;
+
+Str -> letra + ->retorno(Str, yytext, string, yyline, yyrow);
+
+
+Mas -> "+" -> retorno(Mas, yyline, yyrow);
+
+Tab-> t ->retorno(tab, yyline, yyrow);
+
+error-> [:todo:] ->error(yyline, yyrow, yytext);
+
+%%

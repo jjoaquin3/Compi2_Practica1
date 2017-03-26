@@ -1,0 +1,33 @@
+CONJ: Letras -> a~z;
+CONJ: Numeros -> 0~9;
+CONJ: Simbolos -> #,$,%;
+
+especial -> Simbolos -> retorno (Simbolo, yytext, String, yyline, yyrow);
+Char -> \"Letras . \" . -> retorno (Char, yytext, String, yyline, yyrow);
+Identificador ->  Letras Letras Numeros |* .  -> retorno (Identificador, yytext, String, yyline, yyrow);
+-> Reserv[
+"if" -> retorno ( IF, yyline, yyrow);
+"then" -> retorno (THEN, yyline, yyrow);
+"else" -> retorno (ELsE, yyline, yyrow);
+];
+Numero -> Numeros Numeros*. -> retorno (Numero, yytext, int, yyline, yyrow);
+
+Mas -> "+" -> retorno (Mas, yyline, yyrow);
+Menos -> "-" -> retorno ( Menos , yyline, yyrow);
+Por -> "*" -> retorno (Por, yyline, yyrow);
+Div -> "/" -> retorno (Divicion, yyline, yyrow);
+Asignacion -> "=" -> retorno (Asignacion, yyline, yyrow);
+especial2 -> \n \" . -> retorno (Especial2, yyline, yyrow);
+
+blanco -> [:blanco:]+ -> retorno (Blanco, yyline, yyrow);
+Errores -> [:todo:] -> error(yyline, yyrow, yytext);
+
+ahoravamosaprovaruncaracter"a"
+quizaunascomillas "
+unssaltoseguidodecomas
+"
+AnteriorE2
+Ahoraunerror
+mayusculaA
+reservadaif if
+numero 02135

@@ -1,0 +1,5 @@
+%%
+
+Str ->  h w | *  w b| .  a . b . b.->retorno(Str, yytext, string, yyline, yyrow);
+
+%%

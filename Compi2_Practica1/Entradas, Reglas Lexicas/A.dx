@@ -1,0 +1,21 @@
+%%
+CONJ: mini-> a~z;
+CONJ: mayus-> A~Z;
+CONJ: digito->0~9;
+CONJ: carac->!~&;
+CONJ: abc -> a,b,c;
+
+Id -> mini mayus | mini mayus | digito | "_" | * . -> retorno(id, yytext, string, yyline, yyrow)->
+RESERV[
+	"If" -> retorno(if, yyline, yyrow); 
+	"while"->retorno(while, yyline, yyrow);
+	];
+Dec -> digito + ".". digito + . -> retorno(Dec, yytext, float, yyline, yyrow);
+Num -> digito + ->retorno(Num, yytext, int, yyline, yyrow)->RESERV["6"->retorno(seis, yyline, yyrow);];
+Str -> \" mini mayus | +  .\" . ->retorno(Str, yytext, string, yyline, yyrow);
+Chr -> \' mini mayus | . \' . ->retorno(Chr, yytext, string, yyline, yyrow);
+Mas -> "+" -> retorno(Mas, yyline, yyrow);
+Tab-> \t ->retorno(tab, yyline, yyrow);
+blanco-> [:blanco:]->retorno(no_guardar, yyline, yyrow);
+error-> [:todo:] ->error(yyline, yyrow, yytext);
+%%

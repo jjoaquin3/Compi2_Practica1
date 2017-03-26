@@ -1,0 +1,32 @@
+%%
+CONJ: letra-> a~z;
+CONJ: digito->0~9;
+CONJ: carac->!~&;
+CONJ: vocal -> a,e,i,o,u;
+
+Id -> letra letra digito | "_" | * . -> retorno(id, yytext, string, yyline, yyrow)->
+	RESERV
+	[
+		"If" -> retorno(rif, yyline, yyrow); 
+		"while"->retorno(rwhile, yyline, yyrow);
+	];
+	
+Num -> digito + ->retorno(Num, yytext, int, yyline, yyrow)->
+	RESERV
+	[
+		"6"->retorno(seis, yyline, yyrow);
+	];
+	
+Dec -> digito + ".". digito + . -> retorno(Dec, yytext, float, yyline, yyrow);
+
+Str -> \" letra +  . \" . ->retorno(Str, yytext, string, yyline, yyrow);
+
+Chr -> \' letra . \' . ->retorno(Chr, yytext, string, yyline, yyrow);
+
+Mas -> "+" -> retorno(Mas, yyline, yyrow);
+
+Tab-> \t ->retorno(tab, yyline, yyrow);
+
+error-> [:todo:] ->error(yyline, yyrow, yytext);
+
+%%

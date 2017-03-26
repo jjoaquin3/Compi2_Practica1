@@ -1,0 +1,13 @@
+%%
+
+	CONJ: c5 -> @~9;
+	CONJ: c6 -> x~'a';
+	CONJ: c6 -> 9~a;
+	CONJ: c7 -> "9"~z;
+	CONJ: carac->5~abc;
+	CONJ: vocales -> a, 0~9, "e", 9, @, u, c1;
+
+	Tab -> \t ->retorno(tab, yyline, yyrow);
+	error -> [:todo:] -> error(yyline, yyrow, yytext);
+	
+%%

@@ -1,0 +1,34 @@
+Aplicación que implementa el algoritmo de Thompson para análisis léxico.
+
+* Teniendo como entrada archivos con sintaxis parecida a:
+"JFlex", libreria de Java para hacer analizadores Lexicos.
+* Con un modulo de Debugg para observar 
+
+Está aplicación, lo realice por diversión cerca de enero 2016, para recordarme de como
+se implementa el algoritmo de Thompson, tiene uno que otro error de funcionamiento genera
+no dela implementaición del algoritmo de Thompson.
+
+//-------------------------------------------------------------------->
+El enunciado de esta práctica es:
+
+Universidad de San Carlos de Guatemala
+Facultad de Ingeniería
+Escuela de Ciencias y Sistemas
+Curso: Organización de Lenguajes y Compiladores 2
+Primer Semestre 2016
+
+//-------------------------------------------------------------------->
+                    Atte.   José Joaquin Cacao Chub
+                    Carné:  2012-12577
+                    Correo: jjcacao2@gmail.com
+//-------------------------------------------------------------------->
+
+
+Irony Parser: https://irony.codeplex.com/
+	Libreria para realizar los analizadores lexico, sintactico de los archivos de entrada dx
+	
+Graphviz
+	Libreria para graficos
+	
+C#
+	Aplicación de Escritorio
